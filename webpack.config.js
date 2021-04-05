@@ -7,8 +7,25 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   devServer: {
+    before: function(dist, server){
+      server._watch('./dist/*.html')
+    },
     port: 8080,
     contentBase: path.resolve(__dirname, 'dist'),
     hot: true
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env','@babel/preset-react']
+          }
+        }
+      }
+    ]
   }
 }

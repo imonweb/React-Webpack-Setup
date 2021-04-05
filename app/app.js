@@ -1,10 +1,11 @@
-import isEmail from 'validator/lib/isEmail'
-import tripleMe from './tripleMe'
+import React from 'react'
+import ReactDOM from 'react-dom'
+ 
+function App() {
+  return <h1>Noice React!</h1>
+}
 
-console.log(isEmail('john@test.com'))
-console.log(tripleMe(20))
-
-document.querySelector("h1").textContent = 'good morning!'
+ReactDOM.render(<App />, document.getElementById("app"))
 
 if (module.hot) {
   module.hot.accept()
